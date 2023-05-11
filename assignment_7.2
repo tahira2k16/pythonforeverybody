@@ -1,0 +1,12 @@
+fn = input("Enter file name: ")
+fh = open(fn)
+
+lines = 0
+counts = 0
+
+for x in fh:
+    if x.startswith("X-DSPAM-Confidence:"):
+        counts += float(x.replace("X-DSPAM-Confidence:", "").lstrip())
+        lines+=1
+        
+print("Average spam confidence:" , counts/lines)
